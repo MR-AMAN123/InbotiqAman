@@ -5,7 +5,6 @@ export default function Login() {
 
   const submit = async (e: any) => {
     e.preventDefault();
-
     const res = await fetch("/api/auth/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -17,25 +16,27 @@ export default function Login() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100 p-4">
-      <div className="bg-white shadow-sm rounded-xl p-6 w-full max-w-sm">
-        <h1 className="text-xl font-semibold text-center mb-4">Login</h1>
+    <div className="flex items-center justify-center py-20 px-4">
+      <div className="bg-white shadow-lg rounded-xl p-8 w-full max-w-md">
+        <h1 className="text-2xl font-bold mb-6 text-center text-gray-800">
+          Login
+        </h1>
 
-        <form onSubmit={submit} className="space-y-3">
+        <form onSubmit={submit} className="space-y-4">
           <input
-            className="w-full p-3 border rounded-lg"
+            className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500"
             placeholder="Email"
             onChange={(e) => setForm({ ...form, email: e.target.value })}
           />
 
           <input
-            className="w-full p-3 border rounded-lg"
+            className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500"
             type="password"
             placeholder="Password"
             onChange={(e) => setForm({ ...form, password: e.target.value })}
           />
 
-          <button className="w-full bg-blue-600 text-white py-3 rounded-lg">
+          <button className="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition">
             Login
           </button>
         </form>
